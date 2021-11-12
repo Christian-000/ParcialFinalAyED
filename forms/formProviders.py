@@ -1,4 +1,10 @@
 import tkinter as tk
+import json
+
+f1 = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/proveedorData.json", "r")
+c = f1.read()
+
+file = json.loads(c) #js
 
 def formulario_proveedor(app):
 
@@ -6,14 +12,18 @@ def formulario_proveedor(app):
     cuilData = tk.StringVar()
     razonSocialData = tk.StringVar()
     domicilioData = tk.StringVar()
-    telefonoData = tk.IntVar()
+    telefonoData = tk.StringVar()
     def getInfoProveedor():
-        proveedorData["codigo"] = codigoP.get()
-        proveedorData["cuil"] = cuilData.get() 
-        proveedorData["razonSocial"] = razonSocialData.get() 
-        proveedorData["domicilio"] = domicilioData.get() 
-        proveedorData["telefono"] = telefonoData.get() 
-
+        file["codigo"] = codigoP.get()
+        file["cuil"] = cuilData.get() 
+        file["razonSocial"] = razonSocialData.get() 
+        file["domicilio"] = domicilioData.get() 
+        file["telefono"] = telefonoData.get() 
+        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/proveedorData.json", "w")
+        newFile = json.dumps(file, indent=4, sort_keys=True)
+        f.write(newFile)
+        f.close()
+        formulario_proveedor.destroy()
 
     formulario_proveedor = tk.Toplevel(app)
     formulario_proveedor.geometry("475x400")

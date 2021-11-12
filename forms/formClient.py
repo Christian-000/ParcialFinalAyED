@@ -1,7 +1,7 @@
 import tkinter as tk
 import json
 
-f1 = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/clienteData.json", "r")
+f1 = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/clienteData.json", "r")
 c = f1.read()
 
 file = json.loads(c) #js
@@ -26,7 +26,7 @@ def formulario_cliente(app):
         file['domicilio'] = domicilioData.get()
         file['dni'] = dniData.get()
         file['telefono'] = telefonoData.get()
-        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/clienteData.json", "w")
+        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/clienteData.json", "w")
         newFile = json.dumps(file, indent=4, sort_keys=True)
         f.write(newFile)
         f.close()

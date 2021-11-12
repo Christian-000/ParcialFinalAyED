@@ -1,4 +1,10 @@
 import tkinter as tk
+import json
+
+f1 = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/productoData.json", "r")
+c = f1.read()
+
+file = json.loads(c) #js
 
 def formulario_producto(app):
     codigoData = tk.StringVar()
@@ -12,14 +18,19 @@ def formulario_producto(app):
 
 
     def getInfoProducts():
-        productoData['codigo'] = codigoData.get()
-        productoData['nombre'] = nombreData.get()
-        productoData['precio'] = precioData.get()
-        productoData['marca'] = precioData.get()
-        productoData['descripcion'] = descripcionData.get()
-        productoData['cantidad'] = cantidadData.get()
-        productoData['stockMin'] = stockMinData.get()
-        productoData['stockMax'] = stockMaxData.get()
+        file['codigo'] = codigoData.get()
+        file['nombre'] = nombreData.get()
+        file['precio'] = precioData.get()
+        file['marca'] = precioData.get()
+        file['descripcion'] = descripcionData.get()
+        file['cantidad'] = cantidadData.get()
+        file['stockMin'] = stockMinData.get()
+        file['stockMax'] = stockMaxData.get()
+        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/productoData.json", "w")
+        newFile = json.dumps(file, indent=4, sort_keys=True)
+        f.write(newFile)
+        f.close()
+        formulario_producto.destroy()
 
 
 
