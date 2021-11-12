@@ -209,6 +209,11 @@ def formulario_cliente():
     boton_volver = tk.Button(formulario_cliente, text="Volver", font=('Arial', 18), command=formulario_cliente.destroy)
     boton_volver.grid(row=9, column=0, pady=10)
 
+
+productoData = {
+    
+}
+
 def formulario_producto():
     formulario_producto = tk.Toplevel(app)
     formulario_producto.geometry("475x550")
@@ -240,31 +245,31 @@ def formulario_producto():
     stock_max = tk.Label(formulario_producto, text="Stock máximo:", font=('Arial', 14))
     stock_max.grid(row=8, column=0, pady=10, padx=10)
 
-    entry_codigo = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_codigo = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=codigoData)
     entry_codigo.grid(row=1, column=1)
 
-    entry_nombre = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_nombre = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=nombreData)
     entry_nombre.grid(row=2, column=1)
 
-    entry_precio = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_precio = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=precioData)
     entry_precio.grid(row=3, column=1)
 
-    entry_marca = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_marca = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=marcaData)
     entry_marca.grid(row=4, column=1)
 
-    entry_desc = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_desc = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=descripcionData)
     entry_desc.grid(row=5, column=1)
 
-    entry_cant = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_cant = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=cantidadData)
     entry_cant.grid(row=6, column=1)
 
-    entry_stockmin = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_stockmin = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=stockMinData)
     entry_stockmin.grid(row=7, column=1)
 
-    entry_stockmax = tk.Entry(formulario_producto, font=('Arial', 14))
+    entry_stockmax = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=StockMaxData)
     entry_stockmax.grid(row=8, column=1)
 
-    boton_hecho = tk.Button(formulario_producto, text="Hecho", font=('Arial', 18))
+    boton_hecho = tk.Button(formulario_producto, text="Hecho", font=('Arial', 18), command=getInfoProducts)
     boton_hecho.grid(row=9, column=1, pady=10)
 
     boton_volver = tk.Button(formulario_producto, text="Volver", font=('Arial', 18), command=formulario_producto.destroy)
