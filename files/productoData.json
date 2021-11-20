@@ -1,10 +1,22 @@
-{
-    "cantidad": "3",
-    "codigo": "231231",
-    "descripcion": "asdasd",
-    "marca": "123123",
-    "nombre": "Prod_TEST",
-    "precio": "123123",
-    "stockMax": "23",
-    "stockMin": "1"
-}
+[
+    {
+        "cantidad": "sdas",
+        "codigo": "234234",
+        "descripcion": "sadasd",
+        "marca": "AAAAAAAAAa",
+        "nombre": "sadasdasd",
+        "precio": "AAAAAAAAAa",
+        "stockMax": "asad",
+        "stockMin": "asdas"
+    },
+    {
+        "cantidad": "123",
+        "codigo": "123",
+        "descripcion": "1231",
+        "marca": "123",
+        "nombre": "Nuevo Producto",
+        "precio": "123",
+        "stockMax": "123",
+        "stockMin": "123"
+    }
+]

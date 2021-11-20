@@ -14,12 +14,16 @@ def formulario_proveedor(app):
     domicilioData = tk.StringVar()
     telefonoData = tk.StringVar()
     def getInfoProveedor():
-        file["codigo"] = codigoP.get()
-        file["cuil"] = cuilData.get() 
-        file["razonSocial"] = razonSocialData.get() 
-        file["domicilio"] = domicilioData.get() 
-        file["telefono"] = telefonoData.get() 
-        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/proveedorData.json", "w")
+        nwObjc = {}
+
+        nwObjc["codigo"] = codigoP.get()
+        nwObjc["cuil"] = cuilData.get() 
+        nwObjc["razonSocial"] = razonSocialData.get() 
+        nwObjc["domicilio"] = domicilioData.get() 
+        nwObjc["telefono"] = telefonoData.get() 
+        f = open("files/proveedorData.json", "w")
+        file.append(nwObjc)
+
         newFile = json.dumps(file, indent=4, sort_keys=True)
         f.write(newFile)
         f.close()

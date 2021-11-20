@@ -1,10 +1,32 @@
-{
-    "apellido": "adasdaasd",
-    "correo": "asdasd",
-    "dni": "131231",
-    "domicilio": "sdasdas",
-    "localidad": "sdasd",
-    "nombre": "Client_TEST",
-    "numero": "123123",
-    "telefono": "123123"
-}
+[
+    {
+        "apellido": "asdasdasdasd",
+        "correo": "asdsad",
+        "dni": "dasd",
+        "domicilio": "asdas",
+        "localidad": "asdas",
+        "nombre": "adasd",
+        "numero": "adsdasd",
+        "telefono": "Eze"
+    },
+    {
+        "apellido": "asdasd",
+        "correo": "asd",
+        "dni": "asdasd",
+        "domicilio": "asda",
+        "localidad": "asdas",
+        "nombre": "asdasd",
+        "numero": "asda",
+        "telefono": "HOLA EZE"
+    },
+    {
+        "apellido": "EZEEEEE",
+        "correo": "asdasdas",
+        "dni": "asdas",
+        "domicilio": "asdasdasdasdasd",
+        "localidad": "sosa",
+        "nombre": "ezE",
+        "numero": "Eze123",
+        "telefono": "asdas"
+    }
+]

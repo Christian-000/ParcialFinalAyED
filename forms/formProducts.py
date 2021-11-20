@@ -18,15 +18,18 @@ def formulario_producto(app):
 
 
     def getInfoProducts():
-        file['codigo'] = codigoData.get()
-        file['nombre'] = nombreData.get()
-        file['precio'] = precioData.get()
-        file['marca'] = precioData.get()
-        file['descripcion'] = descripcionData.get()
-        file['cantidad'] = cantidadData.get()
-        file['stockMin'] = stockMinData.get()
-        file['stockMax'] = stockMaxData.get()
-        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/productoData.json", "w")
+        nwObjc = {}
+        nwObjc['codigo'] = codigoData.get()
+        nwObjc['nombre'] = nombreData.get()
+        nwObjc['precio'] = precioData.get()
+        nwObjc['marca'] = precioData.get()
+        nwObjc['descripcion'] = descripcionData.get()
+        nwObjc['cantidad'] = cantidadData.get()
+        nwObjc['stockMin'] = stockMinData.get()
+        nwObjc['stockMax'] = stockMaxData.get()
+        f = open("files/productoData.json", "w")
+        
+        file.append(nwObjc)
         newFile = json.dumps(file, indent=4, sort_keys=True)
         f.write(newFile)
         f.close()

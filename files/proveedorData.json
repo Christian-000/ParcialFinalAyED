@@ -1,7 +1,23 @@
-{
-    "codigo": "TEST",
-    "cuil": "123123123",
-    "domicilio": "dfvdfvdfv",
-    "razonSocial": "gfgbgf",
-    "telefono": "dfvdfv"
-}
+[
+    {
+        "codigo": "2312312",
+        "cuil": "sdfwd",
+        "domicilio": "asdsad",
+        "razonSocial": "Eze",
+        "telefono": "asdasd"
+    },
+    {
+        "codigo": "1231",
+        "cuil": "1231",
+        "domicilio": "Nueva prueba",
+        "razonSocial": "1312",
+        "telefono": "12313"
+    },
+    {
+        "codigo": "HOLA MasUNDO",
+        "cuil": "asdasd",
+        "domicilio": "asd",
+        "razonSocial": "asd",
+        "telefono": "asd"
+    }
+]

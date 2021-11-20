@@ -6,7 +6,6 @@ c = f1.read()
 
 file = json.loads(c) #js
 
-
 def formulario_cliente(app):
     numClienteData = tk.StringVar()
     nombreData = tk.StringVar()
@@ -18,20 +17,23 @@ def formulario_cliente(app):
     telefonoData = tk.StringVar()
         
     def getInfoCliente():
-        file['numero'] = numClienteData.get()
-        file['nombre'] = nombreData.get()
-        file['apellido'] = apellidoData.get()
-        file['localidad'] = localidadData.get()
-        file['correo'] = correoData.get()
-        file['domicilio'] = domicilioData.get()
-        file['dni'] = dniData.get()
-        file['telefono'] = telefonoData.get()
-        f = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/clienteData.json", "w")
+        nwObjc = {}
+        nwObjc['numero'] = numClienteData.get()
+        nwObjc['nombre'] = nombreData.get()
+        nwObjc['apellido'] = apellidoData.get()
+        nwObjc['localidad'] = localidadData.get()
+        nwObjc['correo'] = correoData.get()
+        nwObjc['domicilio'] = domicilioData.get()
+        nwObjc['dni'] = dniData.get()
+        nwObjc['telefono'] = telefonoData.get()
+        f = open("files/clienteData.json", "w")
+        
+        file.append(nwObjc)
         newFile = json.dumps(file, indent=4, sort_keys=True)
+        
         f.write(newFile)
         f.close()
         formulario_cliente.destroy()
-
 
 
     formulario_cliente = tk.Toplevel(app)
