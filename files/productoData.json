@@ -1,32 +1,32 @@
 [
     {
-        "cantidad": "sdas",
-        "codigo": "234234",
-        "descripcion": "sadasd",
-        "marca": "AAAAAAAAAa",
-        "nombre": "sadasdasd",
-        "precio": "AAAAAAAAAa",
-        "stockMax": "asad",
-        "stockMin": "asdas"
-    },
-    {
         "cantidad": "123",
-        "codigo": "123",
-        "descripcion": "1231",
+        "codigo": "234234",
+        "descripcion": "sada",
         "marca": "123",
-        "nombre": "Nuevo Producto",
+        "nombre": "PRUEBA ACTUALIZAR",
         "precio": "123",
-        "stockMax": "123",
-        "stockMin": "123"
+        "stockMax": "1231231",
+        "stockMin": "12312"
     },
     {
-        "cantidad": "1",
+        "cantidad": "123213",
+        "codigo": "123",
+        "descripcion": "123123",
+        "marca": "1231",
+        "nombre": "prueba 2",
+        "precio": "1231",
+        "stockMax": "132131",
+        "stockMin": "123123"
+    },
+    {
+        "cantidad": "a",
         "codigo": "1245",
-        "descripcion": "7000ml",
-        "marca": "500",
-        "nombre": "Lubricante LUMAX",
-        "precio": "500",
-        "stockMax": "150",
-        "stockMin": "60"
+        "descripcion": "a",
+        "marca": "a",
+        "nombre": "a",
+        "precio": "a",
+        "stockMax": "a",
+        "stockMin": "a"
     }
 ]
