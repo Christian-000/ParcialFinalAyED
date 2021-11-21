@@ -1,10 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 from forms import formClient, formProducts, formProviders 
-from forms.clientInterface import interfaceFunct, updClient 
-from forms.prodInterface import interfaceProd, updProdu
-from forms.provInterface import interfaceProv, updProv
-
+from forms.clientInterface import interfaceFunct, updClient, delClient 
+from forms.prodInterface import interfaceProd, updProdu, delProd
+from forms.provInterface import interfaceProv, updProv, delProv
 
 def interfaz_principal():
     frame = tk.Frame(app)
@@ -51,13 +50,13 @@ def ventana_eliminacion():
     label_registro = tk.Label(nueva_ventana, text="Opciones de Eliminación", font=('Arial', 18))
     label_registro.grid(row=1, column=0, pady=10, columnspan=5, padx=10)
 
-    boton_proveedores = tk.Button(nueva_ventana, text="ELIMINAR\nPROVEEDOR", font=('Arial', 18))
+    boton_proveedores = tk.Button(nueva_ventana, text="ELIMINAR\nPROVEEDOR", font=('Arial', 18), command=lambda:delProv.crear_ventana(app))
     boton_proveedores.grid(row=4, column=2, padx=30, pady=25)
 
-    boton_productos = tk.Button(nueva_ventana, text="ELIMINAR\n PRODUCTO ", font=('Arial', 18))
+    boton_productos = tk.Button(nueva_ventana, text="ELIMINAR\n PRODUCTO ", font=('Arial', 18), command=lambda:delProd.crear_ventana(app))
     boton_productos.grid(row=4, column=3, padx=10, pady=25)
 
-    boton_cliente = tk.Button(nueva_ventana, text="ELIMINAR\n CLIENTE ", font=('Arial', 18))
+    boton_cliente = tk.Button(nueva_ventana, text="ELIMINAR\n CLIENTE ", font=('Arial', 18), command=lambda:delClient.crear_ventana(app))
     boton_cliente.grid(row=4, column=4, padx=30, pady=25)
 
     boton_volver = tk.Button(nueva_ventana, text="VOLVER", font=('Arial', 20), command=nueva_ventana.destroy)

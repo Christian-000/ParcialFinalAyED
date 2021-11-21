@@ -92,7 +92,7 @@ def crear_ventana(app):
     def consultarCliente(app):
         num = entry.get()
         cliente = list(filter(lambda el: num == el['dni'], client))
-        if len(client) > 0:
+        if len(cliente) > 0:
             formulario_cliente(app, cliente)
         else:
             tk.messagebox.showerror(title="ERROR", message="No existe dicho cliente!")

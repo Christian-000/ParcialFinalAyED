@@ -10,16 +10,6 @@
         "stockMin": "12312"
     },
     {
-        "cantidad": "123213",
-        "codigo": "123",
-        "descripcion": "123123",
-        "marca": "1231",
-        "nombre": "prueba 2",
-        "precio": "1231",
-        "stockMax": "132131",
-        "stockMin": "123123"
-    },
-    {
         "cantidad": "a",
         "codigo": "1245",
         "descripcion": "a",

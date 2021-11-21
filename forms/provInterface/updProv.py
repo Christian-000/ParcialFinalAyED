@@ -84,7 +84,7 @@ def crear_ventana(app):
     ventana_ingreso.title("Consulta de Producto")
     ventana_ingreso.resizable(0, 0)
 
-    labelfr = tk.LabelFrame(ventana_ingreso, text="Cuil del Proveedor")
+    labelfr = tk.LabelFrame(ventana_ingreso, text="CUIL del Proveedor")
     labelfr.pack(fill='both', expand='yes', padx=10, pady=5)
 
     var = tk.StringVar()
