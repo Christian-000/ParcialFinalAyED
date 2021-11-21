@@ -18,5 +18,15 @@
         "precio": "123",
         "stockMax": "123",
         "stockMin": "123"
+    },
+    {
+        "cantidad": "1",
+        "codigo": "1245",
+        "descripcion": "7000ml",
+        "marca": "500",
+        "nombre": "Lubricante LUMAX",
+        "precio": "500",
+        "stockMax": "150",
+        "stockMin": "60"
     }
 ]

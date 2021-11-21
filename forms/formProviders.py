@@ -1,7 +1,7 @@
 import tkinter as tk
 import json
 
-f1 = open("/home/christian/Escritorio/main/ABM_UNI/ParcialFinalAyED/files/proveedorData.json", "r")
+f1 = open("files/proveedorData.json", "r")
 c = f1.read()
 
 file = json.loads(c) #js

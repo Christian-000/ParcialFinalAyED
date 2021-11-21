@@ -10,54 +10,61 @@ cliente = getClientData()
 
 def crear_ventana(app):
 
-    def vista_cliente():
+    def vista_cliente(obj):
         vista_cli = tk.Toplevel(app)
         vista_cli.geometry("300x300")
 
-        nom_cli = tk.Label(vista_cli, text=f"Nombre: {cliente['nombre']}")
+        labelfrcli = tk.LabelFrame(vista_cli, text="Datos del Cliente")
+        labelfrcli.pack(fill='both', expand='yes', padx=10, pady=5)
+
+        nom_cli = tk.Label(labelfrcli, text=f"Nombre: {obj['nombre']}", font=('Arial', 12))
         nom_cli.place(x=10, y=10)
 
-        ape_cli = tk.Label(vista_cli, text=f"Apellido: {cliente['apellido']}")
-        ape_cli.place(x=10, y=30)
+        ape_cli = tk.Label(labelfrcli, text=f"Apellido: {obj['apellido']}", font=('Arial', 12))
+        ape_cli.place(x=10, y=40)
 
-        # edad_cli = tk.Label(vista_cli, text=f"Edad: {cliente['edad']}")
-        # edad_cli.place(x=10, y=50)
+        cor_cli = tk.Label(labelfrcli, text=f"Correo: {obj['correo']}", font=('Arial', 12))
+        cor_cli.place(x=10, y=70)
 
-        cor_cli = tk.Label(vista_cli, text=f"Correo: {cliente['correo']}")
-        cor_cli.place(x=10, y=50)
+        loc_cli = tk.Label(labelfrcli, text=f"Localidad: {obj['localidad']}", font=('Arial', 12))
+        loc_cli.place(x=10, y=100)
 
-        loc_cli = tk.Label(vista_cli, text=f"Localidad: {cliente['localidad']}")
-        loc_cli.place(x=10, y=70)
+        num_cli = tk.Label(labelfrcli, text=f"Número: {obj['numero']}", font=('Arial', 12))
+        num_cli.place(x=10, y=130)
 
-        num_cli = tk.Label(vista_cli, text=f"Número: {cliente['numero']}")
-        num_cli.place(x=10, y=90)
+        tel_cli = tk.Label(labelfrcli, text=f"Teléfono: {obj['telefono']}", font=('Arial', 12))
+        tel_cli.place(x=10, y=160)
 
-        tel_cli = tk.Label(vista_cli, text=f"Teléfono: {cliente['telefono']}")
-        tel_cli.place(x=10, y=110)
+        dni_cli = tk.Label(labelfrcli, text=f"DNI: {obj['dni']}", font=('Arial', 12))
+        dni_cli.place(x=10, y=190)
 
-        dni_cli = tk.Label(vista_cli, text=f"DNI: {cliente['dni']}")
-        dni_cli.place(x=10, y=130)
+        btn_volver = tk.Button(labelfrcli, text="VOLVER", font=('Arial', 12), command=vista_cli.destroy)
+        btn_volver.place(x=100, y=225)
 
-    def consultar():
+    def consultarCliente():
         num = entry.get()
-        if num == cliente['dni']:
-            vista_cliente()
+        client = list(filter(lambda el: num == el['dni'], cliente))
+        if len(client) > 0:
+            vista_cliente(client[0])
         else:
-            messagebox.showerror(title="ERROR", message="DNI Inválido!")
-            
+            messagebox.showerror(title="ERROR", message="No existe dicho cliente!")
         var.set('')
 
     ventana_ingreso = tk.Toplevel(app)
-    ventana_ingreso.geometry("500x500")
+    ventana_ingreso.geometry("540x150")
+    ventana_ingreso.title("Consulta de Cliente")
+    ventana_ingreso.resizable(0, 0)
+
+    labelfr = tk.LabelFrame(ventana_ingreso, text="Documento del Cliente")
+    labelfr.pack(fill='both', expand='yes', padx=10, pady=5)
 
     var = tk.StringVar()
 
-    label = tk.Label(ventana_ingreso, text="INGRESE EL DNI: ")
+    label = tk.Label(labelfr, text="INGRESE EL DNI: ", font=('Arial', 18))
     label.place(x=10, y=10)
 
-    entry = tk.Entry(ventana_ingreso, textvariable=var)
-    entry.place(x=150, y=10)
+    entry = tk.Entry(labelfr, textvariable=var, font=('Arial', 18))
+    entry.place(x=225, y=10)
 
-    boton = tk.Button(ventana_ingreso, text="CONSULTAR", command=consultar)
-    boton.place(x=40, y=80)
-
+    boton = tk.Button(labelfr, text="CONSULTAR", command=consultarCliente, font=('Arial', 15))
+    boton.place(x=185, y=65)
