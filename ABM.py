@@ -19,10 +19,10 @@ def interfaz_principal():
     boton_consultar = tk.Button(frame, text="Consultar", font=('Arial', 18), command=ventana_consulta)
     boton_consultar.grid(row=10, column=3, padx=10, pady=250)
 
-    boton_actualizar = tk.Button(frame, text="Actualizar", font=('Arial', 18))
+    boton_actualizar = tk.Button(frame, text="Actualizar", font=('Arial', 18), command=ventana_actualizar)
     boton_actualizar.grid(row=10, column=4, padx=10, pady=250)
 
-    boton_eliminar = tk.Button(frame, text="Eliminar", font=('Arial', 18))
+    boton_eliminar = tk.Button(frame, text="Eliminar", font=('Arial', 18), command=ventana_eliminacion)
     boton_eliminar.grid(row=10, column=5, padx=10, pady=250)
 
 def ventana_registro():
@@ -77,6 +77,25 @@ def ventana_consulta():
     boton_productos.grid(row=4, column=3, padx=10, pady=25)
 
     boton_cliente = tk.Button(nueva_ventana, text="CONSULTAR\nCLIENTE", font=('Arial', 18), command=lambda:interfaceFunct.crear_ventana(app))
+    boton_cliente.grid(row=4, column=4, padx=30, pady=25)
+
+    boton_volver = tk.Button(nueva_ventana, text="VOLVER", font=('Arial', 20), command=nueva_ventana.destroy)
+    boton_volver.grid(row=6, column=0, padx=10, columnspan=5, pady=5)
+
+def ventana_actualizar():
+    nueva_ventana = tk.Toplevel(app)
+    nueva_ventana.geometry("630x300")
+
+    label_registro = tk.Label(nueva_ventana, text="Opciones de Actualización", font=('Arial', 18))
+    label_registro.grid(row=1, column=0, pady=10, columnspan=5, padx=10)
+
+    boton_proveedores = tk.Button(nueva_ventana, text="ACTUALIZAR\nPROVEEDOR", font=('Arial', 18))
+    boton_proveedores.grid(row=4, column=2, padx=30, pady=25)
+
+    boton_productos = tk.Button(nueva_ventana, text="ACTUALIZAR\nPRODUCTO", font=('Arial', 18))
+    boton_productos.grid(row=4, column=3, padx=10, pady=25)
+
+    boton_cliente = tk.Button(nueva_ventana, text="ACTUALIZAR\nCLIENTE", font=('Arial', 18))
     boton_cliente.grid(row=4, column=4, padx=30, pady=25)
 
     boton_volver = tk.Button(nueva_ventana, text="VOLVER", font=('Arial', 20), command=nueva_ventana.destroy)
