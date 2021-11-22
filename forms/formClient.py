@@ -1,5 +1,7 @@
 import tkinter as tk
+from tkinter import messagebox
 import json
+import re
 
 f1 = open("files/clienteData.json", "r")
 c = f1.read()
@@ -15,7 +17,72 @@ def formulario_cliente(app):
     domicilioData= tk.StringVar()
     dniData= tk.StringVar()
     telefonoData = tk.StringVar()
-        
+ 
+    def validate(obj):
+        count = 0
+        if(obj["numero"].isdigit()):
+            pass
+        else:
+            messagebox.showerror("Numero Invalido", "Debes poner un valor numerico")
+            count += 1
+
+        if(obj["nombre"].isalpha()):
+            pass
+        else:
+            messagebox.showerror("Nombre Invalido", "No se puede incluir Simbolos o Numeros en el nombre.")
+            count += 1
+
+        if(obj["apellido"].isalpha()):
+            pass
+        else:
+            messagebox.showerror("Apellido Invalido", "No se puede incluir Simbolos o Numeros en el Apellido.")
+            count += 1
+
+        if(obj["localidad"].isalpha()):
+            pass
+        else:
+            messagebox.showerror("Localidad Invalida", "No se puede incluir Simbolos o Numeros en la Localidad.")
+            count += 1
+
+        if(re.fullmatch(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', obj["correo"])):
+            pass
+        else:
+            messagebox.showerror("Email Invalido", "La estructura del email debe ser del tipo 'email@email.com'.")
+            count += 1
+
+        if(obj["domicilio"].isalnum()):
+            pass
+        else:
+            messagebox.showerror("Domicilio Invalido", "El domicilio debe contener Letras y Numero solamente.")
+            count += 1
+
+        if(obj["telefono"].isdigit()):
+            pass
+        else:
+            messagebox.showerror("Telefono Invalido", "El telefono debe estar compuesto unicamente por numeros.")
+            count += 1
+
+        if(obj["dni"].isdigit()):
+            pass
+        else:
+            messagebox.showerror("Dni Invalido", "El dni debe ser numerico.")
+            count += 1
+            if(len(obj["dni"]) != 8):
+                messagebox.showerror("Dni Invalido", "El dni debe ser de 8 digitos.")
+                count += 1
+        if(count > 0):
+            messagebox.showerror("ERROR", "Hay datos invalidos en el formulario.")
+            formulario_cliente.destroy()
+
+        else:
+            f = open("files/clienteData.json", "w")
+            
+            file.append(obj)
+            newFile = json.dumps(file, indent=4, sort_keys=True)
+            
+            f.write(newFile)
+            f.close()
+            formulario_cliente.destroy()
     def getInfoCliente():
         nwObjc = {}
         nwObjc['numero'] = numClienteData.get()
@@ -26,14 +93,8 @@ def formulario_cliente(app):
         nwObjc['domicilio'] = domicilioData.get()
         nwObjc['dni'] = dniData.get()
         nwObjc['telefono'] = telefonoData.get()
-        f = open("files/clienteData.json", "w")
+        validate(nwObjc)
         
-        file.append(nwObjc)
-        newFile = json.dumps(file, indent=4, sort_keys=True)
-        
-        f.write(newFile)
-        f.close()
-        formulario_cliente.destroy()
 
 
     formulario_cliente = tk.Toplevel(app)

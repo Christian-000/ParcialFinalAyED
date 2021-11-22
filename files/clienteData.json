@@ -28,5 +28,15 @@
         "nombre": "ezE",
         "numero": "Eze123",
         "telefono": "asdas"
+    },
+    {
+        "apellido": "trescomacatorce",
+        "correo": "chris@gmail.com",
+        "dni": "12345678",
+        "domicilio": "Salta",
+        "localidad": "VM",
+        "nombre": "Chris",
+        "numero": "123",
+        "telefono": "3531234567"
     }
 ]
