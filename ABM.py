@@ -1,12 +1,11 @@
 import tkinter as tk
-from tkinter import ttk
 from forms import formClient, formProducts, formProviders 
 from forms.clientInterface import interfaceFunct, updClient, delClient 
 from forms.prodInterface import interfaceProd, updProdu, delProd
 from forms.provInterface import interfaceProv, updProv, delProv
 
 def interfaz_principal():
-    frame = tk.Frame(app)
+    frame = tk.Frame(app, bg="#27B7CB")
     frame.pack()
 
     label = tk.Label(frame, text="¡Bienvenido a nuestro Sistema!", font=('Arial', 18))

@@ -38,5 +38,15 @@
         "nombre": "Chris",
         "numero": "123",
         "telefono": "3531234567"
+    },
+    {
+        "apellido": "Piccinini",
+        "correo": "chris@gmail.com",
+        "dni": "12345678",
+        "domicilio": "nanan123",
+        "localidad": "VM",
+        "nombre": "Chris",
+        "numero": "123",
+        "telefono": "131231123"
     }
 ]

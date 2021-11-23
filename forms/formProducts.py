@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 import json
 
 f1 = open("files/productoData.json", "r")
@@ -16,24 +17,88 @@ def formulario_producto(app):
     stockMinData = tk.StringVar()
     stockMaxData = tk.StringVar()
 
+    def validate(obj):
+        count = 0
+        stockMin = 0;
+        stockMax = stockMin + 1
+        if(obj["cantidad"].isdigit()):
+            pass
+        else:
+            messagebox.showerror("Cantidad Invalida", "Debes poner un valor numerico")
+            count += 1
+
+        if(obj["codigo"].isdigit()):
+            pass
+        else:
+            messagebox.showerror("Codigo Invalido", "Debes poner un valor numerico.")
+            count += 1
+
+
+        if(obj["marca"].isalpha()):
+            pass
+        else:
+            messagebox.showerror("Marca Invalida", "No se puede incluir Simbolos o Numeros en la Marca.")
+            count += 1
+
+        if(obj["nombre"].isalpha()):
+            pass
+        else:
+            messagebox.showerror("Nombre Invalido", "El nombre no puede contener Numeros o Simbolos.")
+            count += 1
+
+        if(obj["precio"].isdigit()):
+            pass
+        else:
+            if(obj["precio"]): 
+                if(int(obj["precio"]) < 0):
+                    messagebox.showerror("Precio Invalido", "El precio no puede ser menor a 0")
+                    count += 1
+            else:
+                messagebox.showerror("Precio Invalido", "El precio debe estar compuesto unicamente por numeros.")
+                count += 1
+
+        if(obj["stockMin"].isdigit()):
+            stockMin = int(obj["stockMin"])
+        else:
+            messagebox.showerror("Stock Minimo Invalido", "El Stock Minimo debe ser numerico.")
+            count += 1
+
+        if(obj["stockMax"].isdigit()):
+            stockMax = int(obj["stockMax"])
+            if(stockMin > stockMax):
+                messagebox.showerror("Stock Maximo Invalido", "El Stock Maximo debe ser Mayor o Igual al Stock Minimo.")
+                count += 1
+        else:
+            messagebox.showerror("Stock Maximo Invalido", "El Stock Maximo debe ser numerico.")
+            count += 1
+
+        if(count > 0):
+            messagebox.showerror("ERROR", "Hay datos invalidos en el formulario.")
+            formulario_producto.destroy()
+
+
+        else:
+            f = open("files/productoData.json", "w")
+            
+            file.append(obj)
+            newFile = json.dumps(file, indent=4, sort_keys=True)
+            f.write(newFile)
+            f.close()
+            formulario_producto.destroy()
+
 
     def getInfoProducts():
         nwObjc = {}
         nwObjc['codigo'] = codigoData.get()
         nwObjc['nombre'] = nombreData.get()
         nwObjc['precio'] = precioData.get()
-        nwObjc['marca'] = precioData.get()
+        nwObjc['marca'] = marcaData.get()
         nwObjc['descripcion'] = descripcionData.get()
         nwObjc['cantidad'] = cantidadData.get()
         nwObjc['stockMin'] = stockMinData.get()
         nwObjc['stockMax'] = stockMaxData.get()
-        f = open("files/productoData.json", "w")
+        validate(nwObjc)
         
-        file.append(nwObjc)
-        newFile = json.dumps(file, indent=4, sort_keys=True)
-        f.write(newFile)
-        f.close()
-        formulario_producto.destroy()
 
 
 

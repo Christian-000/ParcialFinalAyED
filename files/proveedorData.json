@@ -12,5 +12,12 @@
         "domicilio": "asd",
         "razonSocial": "asd",
         "telefono": "asd"
+    },
+    {
+        "codigo": "123",
+        "cuil": "1",
+        "domicilio": "asdas1",
+        "razonSocial": "asda",
+        "telefono": "123"
     }
 ]
