@@ -74,25 +74,27 @@ def formulario_proveedor(app):
         validate(nwObjc)
  
 
-    formulario_proveedor = tk.Toplevel(app)
-    formulario_proveedor.geometry("475x400")
+    formulario_proveedor = tk.Toplevel(app, bg="#030618")
+    formulario_proveedor.geometry("500x400")
 
-    label_formulario_proveedor = tk.Label(formulario_proveedor, text="Información del Proveedor:", font=('Arial', 18))
+    from ButtonClass.ButtonClass import ButtonClass
+
+    label_formulario_proveedor = tk.Label(formulario_proveedor, text="Información del Proveedor:", font=('Arial', 18), bg="#030618", fg="#fff")
     label_formulario_proveedor.grid(row=0, column=0, columnspan=2, pady=10)
 
-    codigo_p = tk.Label(formulario_proveedor, text="Código: ", font=('Arial', 14))
+    codigo_p = tk.Label(formulario_proveedor, text="Código: ", font=('Arial', 14), bg="#030618", fg="#fff")
     codigo_p.grid(row=1, column=0, pady=10, padx=10)
 
-    cuil_p = tk.Label(formulario_proveedor, text="CUIl:", font=('Arial', 14))
+    cuil_p = tk.Label(formulario_proveedor, text="CUIl:", font=('Arial', 14), bg="#030618", fg="#fff")
     cuil_p.grid(row=2, column=0, pady=10, padx=10)
 
-    razon_social = tk.Label(formulario_proveedor, text="Razón social:", font=('Arial', 14))
+    razon_social = tk.Label(formulario_proveedor, text="Razón social:", font=('Arial', 14), bg="#030618", fg="#fff")
     razon_social.grid(row=3, column=0, pady=10, padx=10)
 
-    domicilio = tk.Label(formulario_proveedor, text="Domicilio:", font=('Arial', 14))
+    domicilio = tk.Label(formulario_proveedor, text="Domicilio:", font=('Arial', 14), bg="#030618", fg="#fff")
     domicilio.grid(row=4, column=0, pady=10, padx=10)
 
-    telefono = tk.Label(formulario_proveedor, text="Teléfono:", font=('Arial', 14))
+    telefono = tk.Label(formulario_proveedor, text="Teléfono:", font=('Arial', 14), bg="#030618", fg="#fff")
     telefono.grid(row=5, column=0, pady=10, padx=10)
 
     entry_codigop = tk.Entry(formulario_proveedor, font=('Arial', 14), textvariable=codigoP)
@@ -110,8 +112,8 @@ def formulario_proveedor(app):
     entry_tel = tk.Entry(formulario_proveedor, font=('Arial', 14), textvariable=telefonoData)
     entry_tel.grid(row=5, column=1)
 
-    boton_hecho = tk.Button(formulario_proveedor, text="Hecho", font=('Arial', 18), command=getInfoProveedor)
+    boton_hecho = tk.Button(formulario_proveedor, image=ButtonClass.btnConfirmar, bg="#030618", command=getInfoProveedor, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
     boton_hecho.grid(row=6, column=1, pady=10)
 
-    boton_volver = tk.Button(formulario_proveedor, text="Volver", font=('Arial', 18), command=formulario_proveedor.destroy)
+    boton_volver = tk.Button(formulario_proveedor, image=ButtonClass.btnVolver, bg="#030618", command=formulario_proveedor.destroy, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
     boton_volver.grid(row=6, column=0, pady=10)

@@ -102,34 +102,36 @@ def formulario_producto(app):
 
 
 
-    formulario_producto = tk.Toplevel(app)
-    formulario_producto.geometry("475x550")
+    formulario_producto = tk.Toplevel(app, bg="#030618")
+    formulario_producto.geometry("500x550")
 
-    label_formulario_producto = tk.Label(formulario_producto, text="Información del Producto:", font=('Arial', 18))
+    from ButtonClass.ButtonClass import ButtonClass
+
+    label_formulario_producto = tk.Label(formulario_producto, text="Información del Producto:", font=('Arial', 18), bg="#030618", fg="#fff")
     label_formulario_producto.grid(row=0, column=0, columnspan=2, pady=10)
 
-    codigo_producto = tk.Label(formulario_producto, text="Código:", font=('Arial', 14))
+    codigo_producto = tk.Label(formulario_producto, text="Código:", font=('Arial', 14), bg="#030618", fg="#fff")
     codigo_producto.grid(row=1, column=0, pady=10, padx=10)
 
-    nombre_producto = tk.Label(formulario_producto, text="Nombre:", font=('Arial', 14))
+    nombre_producto = tk.Label(formulario_producto, text="Nombre:", font=('Arial', 14), bg="#030618", fg="#fff")
     nombre_producto.grid(row=2, column=0, pady=10, padx=10)
 
-    precio_producto = tk.Label(formulario_producto, text="Precio:", font=('Arial', 14))
+    precio_producto = tk.Label(formulario_producto, text="Precio:", font=('Arial', 14), bg="#030618", fg="#fff")
     precio_producto.grid(row=3, column=0, pady=10, padx=10)
 
-    marca_producto = tk.Label(formulario_producto, text="Marca:", font=('Arial', 14))
+    marca_producto = tk.Label(formulario_producto, text="Marca:", font=('Arial', 14), bg="#030618", fg="#fff")
     marca_producto.grid(row=4, column=0, pady=10, padx=10)
 
-    desc_producto = tk.Label(formulario_producto, text="Descripción:", font=('Arial', 14))
+    desc_producto = tk.Label(formulario_producto, text="Descripción:", font=('Arial', 14), bg="#030618", fg="#fff")
     desc_producto.grid(row=5, column=0, pady=10, padx=10)
 
-    cant_producto = tk.Label(formulario_producto, text="Cantidad:", font=('Arial', 14))
+    cant_producto = tk.Label(formulario_producto, text="Cantidad:", font=('Arial', 14), bg="#030618", fg="#fff")
     cant_producto.grid(row=6, column=0, pady=10, padx=10)
 
-    stock_min = tk.Label(formulario_producto, text="Stock mínimo:", font=('Arial', 14))
+    stock_min = tk.Label(formulario_producto, text="Stock mínimo:", font=('Arial', 14), bg="#030618", fg="#fff")
     stock_min.grid(row=7, column=0, pady=10, padx=10)
 
-    stock_max = tk.Label(formulario_producto, text="Stock máximo:", font=('Arial', 14))
+    stock_max = tk.Label(formulario_producto, text="Stock máximo:", font=('Arial', 14), bg="#030618", fg="#fff")
     stock_max.grid(row=8, column=0, pady=10, padx=10)
 
     entry_codigo = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=codigoData)
@@ -156,8 +158,8 @@ def formulario_producto(app):
     entry_stockmax = tk.Entry(formulario_producto, font=('Arial', 14), textvariable=stockMaxData)
     entry_stockmax.grid(row=8, column=1)
 
-    boton_hecho = tk.Button(formulario_producto, text="Hecho", font=('Arial', 18), command=getInfoProducts)
+    boton_hecho = tk.Button(formulario_producto, image=ButtonClass.btnConfirmar, bg="#030618", command=getInfoProducts, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
     boton_hecho.grid(row=9, column=1, pady=10)
 
-    boton_volver = tk.Button(formulario_producto, text="Volver", font=('Arial', 18), command=formulario_producto.destroy)
+    boton_volver = tk.Button(formulario_producto, image=ButtonClass.btnVolver, bg="#030618", command=formulario_producto.destroy, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
     boton_volver.grid(row=9, column=0, pady=10)

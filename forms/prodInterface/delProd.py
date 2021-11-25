@@ -9,7 +9,7 @@ def getProductData():
 producto = getProductData()
 
 def crear_ventana(app):
-
+    from ButtonClass.ButtonClass import ButtonClass
     def eliminar_producto(array_producto, codigo_producto):
         lst = list(filter(lambda el: el['codigo'] != codigo_producto, array_producto))
         with open("files/productoData.json", "w") as file:
@@ -28,21 +28,21 @@ def crear_ventana(app):
             messagebox.showerror(title="ERROR", message="No existe dicho producto!")
         var.set('')
 
-    ventana_ingreso = tk.Toplevel(app)
-    ventana_ingreso.geometry("600x150")
+    ventana_ingreso = tk.Toplevel(app, bg="#030618")
+    ventana_ingreso.geometry("600x250")
     ventana_ingreso.title("Eliminación de Producto")
     ventana_ingreso.resizable(0, 0)
 
-    labelfr = tk.LabelFrame(ventana_ingreso, text="Código del Producto")
+    labelfr = tk.LabelFrame(ventana_ingreso, text="Código del Producto", bg="#030618", fg="#fff")
     labelfr.pack(fill='both', expand='yes', padx=10, pady=5)
 
     var = tk.StringVar()
 
-    label = tk.Label(labelfr, text="INGRESE EL CÓDIGO: ", font=('Arial', 18))
+    label = tk.Label(labelfr, text="INGRESE EL CÓDIGO: ", font=('Arial', 18), bg="#030618", fg="#fff")
     label.place(x=10, y=10)
 
-    entry = tk.Entry(labelfr, textvariable=var, font=('Arial', 18))
+    entry = tk.Entry(labelfr, textvariable=var, font=('Arial', 18), bg="#34495E", fg="#fff")
     entry.place(x=280, y=10)
 
-    boton = tk.Button(labelfr, text="ELIMINAR", command=elimCliente, font=('Arial', 15))
-    boton.place(x=225, y=65)
+    boton = tk.Button(labelfr, image=ButtonClass.btnEliminar, command=elimCliente, bg="#030618", highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
+    boton.place(x=173, y=65)
