@@ -4,8 +4,6 @@ from forms.clientInterface import interfaceFunct, updClient, delClient
 from forms.prodInterface import interfaceProd, updProdu, delProd
 from forms.provInterface import interfaceProv, updProv, delProv
 
-
-
 def interfaz_principal():
     frame = tk.Frame(app, bg="#041E2C")
     frame.pack()
@@ -101,15 +99,11 @@ def ventana_actualizar():
     boton_volver = tk.Button(nueva_ventana, borderwidth=0, image=ButtonClass.btnVolver, command=nueva_ventana.destroy, bg="#041E2C", activebackground="#041E2D", highlightthickness=0)
     boton_volver.grid(row=6, column=0, padx=10, columnspan=5, pady=5)
 
-
 app = tk.Tk()
 app.title('ABM - Clientes, Productos y Proveedores')
 app.geometry("1080x400")
 
-# btn_one = tk.PhotoImage(file="assets/botonrecortado1.png")
-# btn_two = tk.PhotoImage(file="assets/Boton2.png")
-from ButtonClass.ButtonClass import ButtonClass
+from ButtonClass.ButtonClass import ButtonClass # CLASES DE BOTONES ANIMADOS
 interfaz_principal()
-
 
 app.mainloop()

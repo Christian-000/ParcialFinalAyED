@@ -15,7 +15,7 @@ def formulario_proveedor(app):
     domicilioData = tk.StringVar()
     telefonoData = tk.StringVar()
 
-
+    # VALIDACIÓN DE DATOS
     def validate(obj):
         count = 0
         if(obj["codigo"].isdigit()):
@@ -24,22 +24,10 @@ def formulario_proveedor(app):
             messagebox.showerror("Codigo Invalido", "Debes poner un valor numerico")
             count += 1
 
-        if(obj["cuil"].isdigit()):
-            pass
-        else:
-            messagebox.showerror("Cuil Invalido", "Debes poner un valor numerico")
-            count += 1
-
         if(obj["razonSocial"].isalpha()):
             pass
         else:
             messagebox.showerror("Razon Social Invalida", "La razon social no debe contener numeros ni espacios")
-            count += 1
-
-        if(obj["domicilio"].isalnum()):
-            pass
-        else:
-            messagebox.showerror("Domicilio Invalido", "El domicilio debe contener Letras y Numero solamente.")
             count += 1
 
         if(obj["telefono"].isdigit()):
@@ -52,7 +40,6 @@ def formulario_proveedor(app):
             messagebox.showerror("ERROR", "Hay datos invalidos en el formulario.")
             formulario_proveedor.destroy()
 
-
         else:
             f = open("files/proveedorData.json", "w")
             file.append(obj)
@@ -62,10 +49,9 @@ def formulario_proveedor(app):
             f.close()
             formulario_proveedor.destroy()
 
-
+    # FUNCIÓN PARA OBTENER LA INFO. DE LOS CAMPOS Y ALMACENARLA EN EL ARCHIVO
     def getInfoProveedor():
         nwObjc = {}
-
         nwObjc["codigo"] = codigoP.get()
         nwObjc["cuil"] = cuilData.get() 
         nwObjc["razonSocial"] = razonSocialData.get() 
@@ -73,7 +59,7 @@ def formulario_proveedor(app):
         nwObjc["telefono"] = telefonoData.get() 
         validate(nwObjc)
  
-
+    # FUNCIÓN PARA CREAR LA VENTANA
     formulario_proveedor = tk.Toplevel(app, bg="#030618")
     formulario_proveedor.geometry("500x400")
 
@@ -85,7 +71,7 @@ def formulario_proveedor(app):
     codigo_p = tk.Label(formulario_proveedor, text="Código: ", font=('Arial', 14), bg="#030618", fg="#fff")
     codigo_p.grid(row=1, column=0, pady=10, padx=10)
 
-    cuil_p = tk.Label(formulario_proveedor, text="CUIl:", font=('Arial', 14), bg="#030618", fg="#fff")
+    cuil_p = tk.Label(formulario_proveedor, text="CUIL:", font=('Arial', 14), bg="#030618", fg="#fff")
     cuil_p.grid(row=2, column=0, pady=10, padx=10)
 
     razon_social = tk.Label(formulario_proveedor, text="Razón social:", font=('Arial', 14), bg="#030618", fg="#fff")

@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import messagebox
 import json
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getProviderData():
     with open("files/proveedorData.json") as file:
         provider = json.load(file)
         return provider
-proveedor = getProviderData()
+proveedor = getProviderData() # EL ARCHIVO SE ALMACENA EN UN OBJETO (DICCIONARIO)
 
+# FUNCIÓN PARA CONSULTAR EL PROVEEDOR
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # FUNCIÓN PARA MOSTRAR LOS DATOS: SE RECIBE EL OBJETO COMO PARÁMETRO Y SE ESCRIBEN SUS ARGUMENTOS EN LABELS
     def vista_Proveedor(obj):
         vista_prov = tk.Toplevel(app, bg="#030618")
         vista_prov.geometry("400x360")
@@ -35,15 +38,17 @@ def crear_ventana(app):
         btn_volver = tk.Button(labelfrprov, image=ButtonClass.btnVolver, bg="#030618", command=vista_prov.destroy, borderwidth=0, highlightthickness = 0, activebackground="#041E2D")
         btn_volver.place(x=85, y=170)
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL PROVEEDOR
     def consultarProveedor():
         num = entry.get()
-        provider = list(filter(lambda el: num == el['cuil'], proveedor))
-        if len(provider) > 0:
+        provider = list(filter(lambda el: num == el['cuil'], proveedor)) # SE FILTRAN LOS ELEMENTOS CUYO CUIL COINCIDE CON EL INGRESADO
+        if len(provider) > 0: # SI EXISTE EL PROVEEDOR, SE MANDA EL REGISTRO COMO PARÁMETRO A LA FUNCIÓN
             vista_Proveedor(provider[0])
-        else:
+        else: # SI NO EXISTE, SE MUESTRA UN MSJ. DE ERROR
             messagebox.showerror(title="ERROR", message="No existe dicho Proveedor!")
         var.set('')
 
+    # CREACIÓN DE LA NUEVA VENTANA Y DE LOS WIDGETS
     ventana_ingreso = tk.Toplevel(app, bg="#030618")
     ventana_ingreso.geometry("570x250")
     ventana_ingreso.title("Consulta de Proveedor")

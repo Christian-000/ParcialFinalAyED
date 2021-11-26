@@ -1,52 +1,12 @@
 [
     {
-        "apellido": "asdasdasdasd",
-        "correo": "asdsad",
-        "dni": "dasd",
-        "domicilio": "asdas",
-        "localidad": "asdas",
-        "nombre": "adasd",
-        "numero": "adsdasd",
-        "telefono": "Eze"
-    },
-    {
-        "apellido": "asda",
-        "correo": "asd",
-        "dni": "asdasd",
-        "domicilio": "sd",
-        "localidad": "asd",
-        "nombre": "PRUEBA ACTUALIZACION",
-        "numero": "123",
-        "telefono": "asda"
-    },
-    {
-        "apellido": "EZEEEEE",
-        "correo": "asdasdas",
-        "dni": "asdas",
-        "domicilio": "asdasdasdasdasd",
-        "localidad": "sosa",
-        "nombre": "ezE",
-        "numero": "Eze123",
-        "telefono": "asdas"
-    },
-    {
-        "apellido": "trescomacatorce",
-        "correo": "chris@gmail.com",
-        "dni": "12345678",
-        "domicilio": "Salta",
-        "localidad": "VM",
-        "nombre": "Chris",
-        "numero": "123",
-        "telefono": "3531234567"
-    },
-    {
-        "apellido": "Piccinini",
-        "correo": "chris@gmail.com",
-        "dni": "12345678",
-        "domicilio": "nanan123",
-        "localidad": "VM",
-        "nombre": "Chris",
-        "numero": "123",
-        "telefono": "131231123"
+        "apellido": "Gomez",
+        "correo": "rgomez@gmail.com",
+        "dni": "34021021",
+        "domicilio": "Calle 123",
+        "localidad": "Villa Maria",
+        "nombre": "Roberto",
+        "numero": "011512",
+        "telefono": "445125251"
     }
 ]

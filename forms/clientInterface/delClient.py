@@ -2,14 +2,19 @@ import tkinter as tk
 from tkinter import messagebox
 import json
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getClientData():
     with open("files/clienteData.json") as file:
         client = json.load(file)
         return client
-cliente = getClientData()
+cliente = getClientData() # EL ARCHIVO SE ALMACENA EN UN OBJETO
 
+# FUNCIÓN PARA ELIMINAR EL CLIENTE
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # SE RECIBE EL DNI COMO PARÁMETRO Y SE FILTRAN LOS REGISTROS CUYO DATO NO COINCIDA.
+    # SI EXISTE EL CLIENTE, SE SOBREESCRIBE EL ARCHIVO SIN EL REGISTRO DEL CLIENTE INGRESADO.
+    # SI NO EXISTE, SE MUESTRA UN MSJ. DE ERROR
     def eliminar_cliente(array_cliente, numero_dni):
         lst = list(filter(lambda el: el['dni'] != numero_dni, array_cliente))
         with open("files/clienteData.json", "w") as file:
@@ -19,6 +24,7 @@ def crear_ventana(app):
             messagebox.showinfo(title="Eliminación", message="¡Cliente eliminado correctamente!")
             ventana_ingreso.destroy()
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL CLIENTE
     def elimCliente():
         num = entry.get()
         client = list(filter(lambda el: num == el['dni'], cliente))
@@ -28,6 +34,7 @@ def crear_ventana(app):
             messagebox.showerror(title="ERROR", message="No existe dicho cliente!")
         var.set('')
 
+    # CREACIÓN DE LA VENTANA Y LOS WIDGETS
     ventana_ingreso = tk.Toplevel(app, bg="#030618")
     ventana_ingreso.geometry("540x250")
     ventana_ingreso.title("Eliminación de Cliente")

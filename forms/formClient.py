@@ -3,7 +3,6 @@ from tkinter import messagebox
 import json
 import re
 
-
 f1 = open("files/clienteData.json", "r")
 c = f1.read()
 
@@ -18,7 +17,8 @@ def formulario_cliente(app):
     domicilioData= tk.StringVar()
     dniData= tk.StringVar()
     telefonoData = tk.StringVar()
- 
+
+    # VALIDACIÓN DE DATOS
     def validate(obj):
         count = 0
         if(obj["numero"].isdigit()):
@@ -39,22 +39,10 @@ def formulario_cliente(app):
             messagebox.showerror("Apellido Invalido", "No se puede incluir Simbolos o Numeros en el Apellido.")
             count += 1
 
-        if(obj["localidad"].isalpha()):
-            pass
-        else:
-            messagebox.showerror("Localidad Invalida", "No se puede incluir Simbolos o Numeros en la Localidad.")
-            count += 1
-
         if(re.fullmatch(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', obj["correo"])):
             pass
         else:
             messagebox.showerror("Email Invalido", "La estructura del email debe ser del tipo 'email@email.com'.")
-            count += 1
-
-        if(obj["domicilio"].isalnum()):
-            pass
-        else:
-            messagebox.showerror("Domicilio Invalido", "El domicilio debe contener Letras y Numero solamente.")
             count += 1
 
         if(obj["telefono"].isdigit()):
@@ -73,7 +61,6 @@ def formulario_cliente(app):
                 count += 1
         if(count > 0):
             messagebox.showerror("ERROR", "Hay datos invalidos en el formulario.")
-            formulario_cliente.destroy()
 
         else:
             f = open("files/clienteData.json", "w")
@@ -84,6 +71,8 @@ def formulario_cliente(app):
             f.write(newFile)
             f.close()
             formulario_cliente.destroy()
+
+    # FUNCIÓN PARA OBTENER LOS DATOS DE LOS CAMPOS Y ALMACENARLOS EN EL ARCHIVO.        
     def getInfoCliente():
         nwObjc = {}
         nwObjc['numero'] = numClienteData.get()
@@ -96,17 +85,17 @@ def formulario_cliente(app):
         nwObjc['telefono'] = telefonoData.get()
         validate(nwObjc)
         
-
-
     formulario_cliente = tk.Toplevel(app, bg="#030618")
     formulario_cliente.geometry("500x550")
 
     from ButtonClass import ButtonClass
 
+    # CREACIÓN DEL FORMULARIO
+
     label_formulario_cliente = tk.Label(formulario_cliente, text="Información del Cliente:", font=('Arial', 18), bg="#030618", fg="#fff")
     label_formulario_cliente.grid(row=0, column=0, columnspan=2, pady=10)
 
-    numero_cliente = tk.Label(formulario_cliente, text="Número:", font=('Arial', 14), bg="#030618", fg="#fff")
+    numero_cliente = tk.Label(formulario_cliente, text="Código:", font=('Arial', 14), bg="#030618", fg="#fff")
     numero_cliente.grid(row=1, column=0, pady=10, padx=10)
 
     nombre_cliente = tk.Label(formulario_cliente, text="Nombre:", font=('Arial', 14), bg="#030618", fg="#fff")

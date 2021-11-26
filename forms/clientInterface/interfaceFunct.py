@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import messagebox
 import json
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getClientData():
     with open("files/clienteData.json") as file:
         client = json.load(file)
         return client
-cliente = getClientData()
+cliente = getClientData() # EL ARCHIVO SE ALMACENA EN UN OBJETO (DICCIONARIO)
 
+# FUNCIÓN PARA CONSULTAR EL CLIENTE
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # FUNCIÓN PARA MOSTRAR LOS DATOS: SE RECIBE EL OBJETO COMO PARÁMETRO Y SE ESCRIBEN SUS ARGUMENTOS EN LABELS
     def vista_cliente(obj):
         vista_cli = tk.Toplevel(app, bg="#030618")
         vista_cli.geometry("400x400")
@@ -41,15 +44,17 @@ def crear_ventana(app):
         btn_volver = tk.Button(labelfrcli, image=ButtonClass.btnVolver, borderwidth=0, bg="#030618", command=vista_cli.destroy, highlightthickness = 0, activebackground="#041E2D")
         btn_volver.place(x=100, y=225)
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL CLIENTE
     def consultarCliente():
         num = entry.get()
-        client = list(filter(lambda el: num == el['dni'], cliente))
-        if len(client) > 0:
+        client = list(filter(lambda el: num == el['dni'], cliente)) # SE FILTRAN LOS REGISTROS CUYO DNI COINCIDA CON EL INGRESADO
+        if len(client) > 0: # SI EXISTE UN CLIENTE, SE PASA COMO PARÁMETRO A LA FUNCIÓN
             vista_cliente(client[0])
-        else:
+        else: # SI NO EXISTE, SE MUESTRA UN MSJ DE ERROR
             messagebox.showerror(title="ERROR", message="No existe dicho cliente!")
         var.set('')
 
+    # VENTANA DE CONSULTA
     ventana_ingreso = tk.Toplevel(app, bg="#030618")
     ventana_ingreso.geometry("540x250")
     ventana_ingreso.title("Consulta de Cliente")

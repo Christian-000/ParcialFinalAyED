@@ -1,22 +1,22 @@
 [
     {
-        "cantidad": "a",
-        "codigo": "1245",
-        "descripcion": "a",
-        "marca": "a",
-        "nombre": "a",
-        "precio": "a",
-        "stockMax": "a",
-        "stockMin": "a"
+        "cantidad": "5",
+        "codigo": "01512",
+        "descripcion": "7000ml",
+        "marca": "SUPER",
+        "nombre": "Lubricante LuMAX",
+        "precio": "5000",
+        "stockMax": "30",
+        "stockMin": "10"
     },
     {
-        "cantidad": "100",
-        "codigo": "123",
-        "descripcion": "puto el que lee",
-        "marca": "Axion",
-        "nombre": "NaftaxLitro",
-        "precio": "10000000",
-        "stockMax": "100",
-        "stockMin": "1"
+        "cantidad": "5",
+        "codigo": "01401041",
+        "descripcion": "10000ml",
+        "marca": "7000",
+        "nombre": "Combustible CM",
+        "precio": "7000",
+        "stockMax": "200",
+        "stockMin": "100"
     }
 ]

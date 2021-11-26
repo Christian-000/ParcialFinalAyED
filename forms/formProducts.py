@@ -7,6 +7,7 @@ c = f1.read()
 
 file = json.loads(c) #js
 
+# FUNCIÓN PARA CREAR EL FORMULARIO
 def formulario_producto(app):
     codigoData = tk.StringVar()
     nombreData = tk.StringVar()
@@ -17,6 +18,7 @@ def formulario_producto(app):
     stockMinData = tk.StringVar()
     stockMaxData = tk.StringVar()
 
+    # VALIDACIÓN DE DATOS
     def validate(obj):
         count = 0
         stockMin = 0;
@@ -38,12 +40,6 @@ def formulario_producto(app):
             pass
         else:
             messagebox.showerror("Marca Invalida", "No se puede incluir Simbolos o Numeros en la Marca.")
-            count += 1
-
-        if(obj["nombre"].isalpha()):
-            pass
-        else:
-            messagebox.showerror("Nombre Invalido", "El nombre no puede contener Numeros o Simbolos.")
             count += 1
 
         if(obj["precio"].isdigit()):
@@ -74,8 +70,6 @@ def formulario_producto(app):
 
         if(count > 0):
             messagebox.showerror("ERROR", "Hay datos invalidos en el formulario.")
-            formulario_producto.destroy()
-
 
         else:
             f = open("files/productoData.json", "w")
@@ -86,7 +80,7 @@ def formulario_producto(app):
             f.close()
             formulario_producto.destroy()
 
-
+    # FUNCIÓN PARA OBTENER LOS DATOS Y ALMACENARLOS EN EL ARCHIVO
     def getInfoProducts():
         nwObjc = {}
         nwObjc['codigo'] = codigoData.get()
@@ -98,10 +92,8 @@ def formulario_producto(app):
         nwObjc['stockMin'] = stockMinData.get()
         nwObjc['stockMax'] = stockMaxData.get()
         validate(nwObjc)
-        
 
-
-
+    # CREACIÓN DE LA VENTANA Y LOS WIDGETS
     formulario_producto = tk.Toplevel(app, bg="#030618")
     formulario_producto.geometry("500x550")
 

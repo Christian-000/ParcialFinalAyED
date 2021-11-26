@@ -2,14 +2,17 @@ import tkinter as tk
 from tkinter import messagebox
 import json
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getProductData():
     with open("files/productoData.json") as file:
         product = json.load(file)
         return product
-producto = getProductData()
+producto = getProductData() # EL ARCHIVO SE ALMACENA EN UN OBJETO (DICCIONARIO)
 
+# FUNCIÓN PARA CONSULTAR EL PRODUCTO
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # FUNCIÓN PARA MOSTRAR LOS DATOS: SE RECIBE EL OBJETO COMO PARÁMETRO Y SE ESCRIBEN SUS ARGUMENTOS EN LABELS
     def vista_Producto(obj):
         vista_produ = tk.Toplevel(app, bg="#030618")
         vista_produ.geometry("400x400")
@@ -44,12 +47,13 @@ def crear_ventana(app):
         btn_volver = tk.Button(labelfrprod, image=ButtonClass.btnVolver, borderwidth=0, bg="#030618", command=vista_produ.destroy, highlightthickness = 0, activebackground="#041E2D")
         btn_volver.place(x=100, y=260)
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL PRODUCTO
     def consultarProducto():
         num = entry.get()
-        product = list(filter(lambda el: num == el['codigo'], producto))
-        if len(product) > 0:
+        product = list(filter(lambda el: num == el['codigo'], producto)) # SE FILTRAN LOS REGISTROS CUYO CÓDIGO COINCIDA CON EL INGRESAD
+        if len(product) > 0: # SI EXISTE EL PRODUCTO, SE PASA COMO PARÁMETRO A LA FUNCIÓN.
             vista_Producto(product[0])
-        else:
+        else: # SI NO EXISTE, SE MUESTRA UN MSJ. DE ERROR
             messagebox.showerror(title="ERROR", message="No existe dicho Producto!")
         var.set('')
 

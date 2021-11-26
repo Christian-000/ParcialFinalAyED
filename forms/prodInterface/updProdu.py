@@ -1,14 +1,17 @@
 import json
 import tkinter as tk
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getProductData():
     with open("files/productoData.json") as file:
         product = json.load(file)
         return product
-producto = getProductData()
+producto = getProductData() # EL ARCHIVO SE ALMACENA EN UN OBJETO
 
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # FUNCIÓN PARA ACTUALIZAR ARCHIVO: LA FUNCIÓN RECIBE EL ELEMENTO FILTRADO COMO PARÁMETRO
+    # GUARDA SU CÓDIGO, Y ABRE UN FORMULARIO PARA QUE SE INGRESEN LOS DEMÁS DATOS.
     def formulario_producto(app, arrProdu):
         nombreData = tk.StringVar()
         precioData = tk.StringVar()
@@ -18,10 +21,11 @@ def crear_ventana(app):
         stockMinData = tk.StringVar()
         stockMaxData = tk.StringVar()
             
+        # FUNCIÓN PARA OBTENER LOS DATOS DE LOS CAMPOS DE TEXTO Y ALMACENARLOS EN EL ARCHIVO.     
         def getInfoProducts(arrProdu):
             arrProdu[0]['nombre'] = nombreData.get()
             arrProdu[0]['precio'] = precioData.get()
-            arrProdu[0]['marca'] = precioData.get()
+            arrProdu[0]['marca'] = marcaData.get()
             arrProdu[0]['descripcion'] = descripcionData.get()
             arrProdu[0]['cantidad'] = cantidadData.get()
             arrProdu[0]['stockMin'] = stockMinData.get()
@@ -90,18 +94,20 @@ def crear_ventana(app):
         boton_volver = tk.Button(formulario_producto, image=ButtonClass.btnVolver, bg="#030618", command=formulario_producto.destroy, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
         boton_volver.grid(row=9, column=0, pady=10)
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL PRODUCTO
     def consultarProducto(app):
         num = entry.get()
-        product = list(filter(lambda el: num == el['codigo'], producto))
-        if len(product) > 0:
+        product = list(filter(lambda el: num == el['codigo'], producto)) # SE FILTRAN LOS ELEMENTOS CUYO CÓDIGO COINCIDA CON EL INGRESADO
+        if len(product) > 0: # SI EXISTE EL PRODUCTO, SE ENVÍA EL REGISTRO COMO PARÁMETRO A LA FUNCIÓN
             formulario_producto(app, product)
-        else:
+        else: # SI NO EXISTE, SE MUESTRA UN MSJ. DE ERROR
             tk.messagebox.showerror(title="ERROR", message="No existe dicho Producto!")
         var.set('')
 
+    # CREACIÓN DE LA VENTANA Y SUS WIDGETS
     ventana_ingreso = tk.Toplevel(app, bg="#030618")
     ventana_ingreso.geometry("590x250")
-    ventana_ingreso.title("Consulta de Producto")
+    ventana_ingreso.title("Actualización de Producto")
     ventana_ingreso.resizable(0, 0)
 
     labelfr = tk.LabelFrame(ventana_ingreso, text="Código del Producto", bg="#030618", fg="#fff")

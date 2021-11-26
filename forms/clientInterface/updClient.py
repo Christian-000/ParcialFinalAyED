@@ -1,14 +1,17 @@
 import json
 import tkinter as tk
 
+# FUNCIÓN PARA CARGAR EL ARCHIVO
 def getClientData():
     with open("files/clienteData.json") as file:
         client = json.load(file)
         return client
-client = getClientData()
+client = getClientData() # EL ARCHIVO SE ALMACENA EN UN OBJETO
 
 def crear_ventana(app):
     from ButtonClass.ButtonClass import ButtonClass
+    # FUNCIÓN PARA ACTUALIZAR ARCHIVO: LA FUNCIÓN RECIBE EL ELEMENTO FILTRADO COMO PARÁMETRO
+    # GUARDA SU DNI, Y ABRE UN FORMULARIO PARA QUE SE INGRESEN LOS DEMÁS DATOS.
     def formulario_cliente(app, arrCli):
         numClienteData = tk.StringVar()
         nombreData = tk.StringVar()
@@ -17,7 +20,8 @@ def crear_ventana(app):
         correoData= tk.StringVar()
         domicilioData= tk.StringVar()
         telefonoData = tk.StringVar()
-            
+
+        # FUNCIÓN PARA OBTENER LOS DATOS DE LOS CAMPOS DE TEXTO Y ALMACENARLOS EN EL ARCHIVO.    
         def getInfoCliente(arrClient):
             arrClient[0]['numero'] = numClienteData.get()
             arrClient[0]['nombre'] = nombreData.get()
@@ -59,7 +63,6 @@ def crear_ventana(app):
         domicilio_cliente = tk.Label(formulario_cliente, text="Domicilio:", font=('Arial', 14), bg="#030618", fg="#fff")
         domicilio_cliente.grid(row=6, column=0, pady=10, padx=10)
 
-
         telefono_cliente = tk.Label(formulario_cliente, text="Teléfono:", font=('Arial', 14), bg="#030618", fg="#fff")
         telefono_cliente.grid(row=8, column=0, pady=10, padx=10)
 
@@ -90,18 +93,20 @@ def crear_ventana(app):
         boton_volver = tk.Button(formulario_cliente, image=ButtonClass.btnVolver, bg="#030618", command=formulario_cliente.destroy, highlightthickness = 0, borderwidth=0, activebackground="#041E2D")
         boton_volver.grid(row=9, column=0, pady=10)
 
+    # FUNCIÓN PARA CONSULTAR LA EXISTENCIA DEL CLIENTE
     def consultarCliente(app):
         num = entry.get()
-        cliente = list(filter(lambda el: num == el['dni'], client))
-        if len(cliente) > 0:
+        cliente = list(filter(lambda el: num == el['dni'], client)) # SE FILTRAN LOS REGISTROS CUYO DNI COINCIDA CON EL INGRESADO
+        if len(cliente) > 0: # SI EXISTE EL CLIENTE, SE PASA COMO PARÁMETRO A LA FUNCIÓN
             formulario_cliente(app, cliente)
-        else:
+        else: # SI NO EXISTE, SE MUESTRA UN MSJ. DE ERROR
             tk.messagebox.showerror(title="ERROR", message="No existe dicho cliente!")
         var.set('')
 
+    # CREACIÓN DE LAS VENTANAS
     ventana_ingreso = tk.Toplevel(app, bg="#030618")
     ventana_ingreso.geometry("540x250")
-    ventana_ingreso.title("Consulta de Cliente")
+    ventana_ingreso.title("Actualización de Cliente")
     ventana_ingreso.resizable(0, 0)
 
     labelfr = tk.LabelFrame(ventana_ingreso, text="Documento del Cliente", bg="#030618", fg="#fff")

@@ -1,23 +1,9 @@
 [
     {
-        "codigo": "123456789",
-        "cuil": "1231",
-        "domicilio": "San Justo",
-        "razonSocial": "Casado ahre nqv",
-        "telefono": "Se lo robaron"
-    },
-    {
-        "codigo": "HOLA MasUNDO",
-        "cuil": "asdasd",
-        "domicilio": "asd",
-        "razonSocial": "asd",
-        "telefono": "asd"
-    },
-    {
-        "codigo": "123",
-        "cuil": "1",
-        "domicilio": "asdas1",
-        "razonSocial": "asda",
-        "telefono": "123"
+        "codigo": "01245",
+        "cuil": "23-41241244-3",
+        "domicilio": "Calle 123",
+        "razonSocial": "Monotributista",
+        "telefono": "366466346"
     }
 ]
